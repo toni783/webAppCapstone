@@ -1,4 +1,4 @@
-<div class="navbar navbar-default navbar-static-top">
+<div class="navbar navbar-primary navbar-static-top">
   <div class="container">
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" ng-click="$ctrl.isCollapsed = !$ctrl.isCollapsed">
@@ -15,10 +15,32 @@
             <a ui-sref="{{item.state}}">{{item.title}}</a>
         </li>
         <li ng-show="$ctrl.isAdmin()" ui-sref-active="active"><a ui-sref="admin">Admin</a></li>
+      <!-- <li ng-show="!$ctrl.isAdmin() && $ctrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="admin">other user</a></li> -->
+
+
+       <li class="hidden-sm hidden-md hidden-lg" ><a ui-sref="">Search</a></li>
+        <li class="navbar-li-padding hidden-xs " ><input type="text" name="" id="input" placeholder="Search Your Doctor"> </li>
+        <li class="navbar-li-padding hidden-xs " ><button type="button" class="btn btn-success">button</button></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li ng-hide="$ctrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Sign up</a></li>
+
+
+       <!--  <li ng-hide="$ctrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Sign up</a></li> -->
+        
+         <!-- Single button with keyboard nav -->
+    <li class="btn-group" uib-dropdown keyboard-nav>
+        <a id="simple-btn-keyboard-nav"  uib-dropdown-toggle>
+           Sign up<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+            <li role="menuitem" ng-hide="$ctrl.isLoggedIn()" ><a ui-sref="signup">Doctor Sign up</a></li> 
+            <li class="divider"></li>
+            <li role="menuitem" ng-hide="$ctrl.isLoggedIn()" ><a ui-sref="signup">Patient Sign up</a></li> 
+            
+        </ul>
+    </li>
+
         <li ng-hide="$ctrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
         <li ng-show="$ctrl.isLoggedIn()"><p class="navbar-text">Hello {{ $ctrl.getCurrentUser().name }}</p> </li>
         <li ng-show="$ctrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li>

@@ -6,18 +6,21 @@ interface User {
   name: string;
   email: string;
   password: string;
+  role: string;
 }
 
 export default class SignupController {
   user: User = {
     name: '',
     email: '',
-    password: ''
+    password: '',
+    role: ''
   };
   errors = {};
   submitted = false;
   Auth;
   $state;
+  test = '';
 
   /*@ngInject*/
   constructor(Auth, $state) {
@@ -26,13 +29,15 @@ export default class SignupController {
   }
 
   register(form) {
+    console.log(this.test);
     this.submitted = true;
 
     if(form.$valid) {
       return this.Auth.createUser({
         name: this.user.name,
         email: this.user.email,
-        password: this.user.password
+        password: this.user.password,
+        role: "patient"
       })
       .then(() => {
         // Account created, redirect to home

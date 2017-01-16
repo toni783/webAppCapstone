@@ -40,12 +40,28 @@
   padding: 0.2em 0;
 }
 
+section{
+  padding-bottom: 40px;
+  padding-top: 40px;
+  margin-bottom: 80px;
+  margin-top: 80px;
+}
+
+ .bg-section-blue{
+  background-color:#004E72; 
+}
+
+.font-color-white{
+  color: #fff;
+}
+
 
 /* Component styles are injected through gulp */
 /* inject:css */
+@import 'aboutus/aboutus.css';
 @import 'admin/admin.css';
 @import 'main/main.css';
 @import '../components/footer/footer.css';
 @import '../components/modal/modal.css';
-@import '../components/oauth-buttons/oauth-buttons.css';
+@import '../components/navbar/navbar.css';
 /* endinject */
