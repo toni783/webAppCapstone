@@ -96,6 +96,22 @@ export function AuthService($location, $http, $cookies, $q, appConfig, Util, Use
       }).$promise;
     },
 
+     /**
+     * Change first name and last name
+     *
+     * @param  {String}   newFirstName
+     * @param  {String}   newLastName
+     * @param  {Function} callback    - function(error, user)
+     * @return {Promise}
+     */
+    changePassword(oldPassword, newPassword, callback?: Function) {
+      return User.changePassword({ id: currentUser._id }, { oldPassword, newPassword }, function() {
+        return safeCb(callback)(null);
+      }, function(err) {
+        return safeCb(callback)(err);
+      }).$promise;
+    },
+
     /**
      * Gets all available info on a user
      *

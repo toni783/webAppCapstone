@@ -11,6 +11,12 @@ export class NavbarComponent {
     'title': 'About Us',
     'state': 'aboutus'
 
+  },
+  {
+
+    'title': 'Profile',
+    'state': 'profile'
+
   }];
   isLoggedIn: Function;
   isAdmin: Function;

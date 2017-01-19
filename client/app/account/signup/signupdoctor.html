@@ -8,12 +8,23 @@
 
         <div class="form-group" ng-class="{ 'has-success': form.name.$valid && vm.submitted,
                                             'has-error': form.name.$invalid && vm.submitted }">
-          <label>Name</label>
+          <label>First Name</label>
 
-          <input type="text" name="name" class="form-control" ng-model="vm.user.name"
+          <input type="text" name="name" class="form-control" ng-model="vm.user.firstname"
                  required/>
           <p class="help-block" ng-show="form.name.$error.required && vm.submitted">
-            A name is required
+            A First name is required
+          </p>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-success': form.name.$valid && vm.submitted,
+                                            'has-error': form.name.$invalid && vm.submitted }">
+          <label>Last Name</label>
+
+          <input type="text" name="name" class="form-control" ng-model="vm.user.lastname"
+                 required/>
+          <p class="help-block" ng-show="form.name.$error.required && vm.submitted">
+            A Last name is required
           </p>
         </div>
 
@@ -68,9 +79,9 @@
           <button class="btn btn-inverse btn-lg btn-register" type="submit" ng-click="vm.test='button1'">
             Sign up
           </button>
-          <button class="btn btn-inverse btn-lg btn-register" type="submit" ng-click="vm.test='button2'">
+          <!-- <button class="btn btn-inverse btn-lg btn-register" type="submit" ng-click="vm.test='button2'">
             Sign up
-          </button>
+          </button> -->
           <a class="btn btn-default btn-lg btn-login" ui-sref="login">
             Login
           </a>

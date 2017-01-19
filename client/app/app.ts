@@ -21,6 +21,7 @@ import navbar from '../components/navbar/navbar.component';
 import footer from '../components/footer/footer.component';
 import main from './main/main.component';
 import AboutusComponent from './aboutus/aboutus.component';
+import ProfileComponent from './profile/profile.component';
 import constants from './app.constants';
 import util from '../components/util/util.module';
 import socket from '../components/socket/socket.service';
@@ -44,6 +45,7 @@ angular.module('webVersionApp', [
   footer,
   main,
   AboutusComponent,
+  ProfileComponent,
   constants,
   socket,
   util

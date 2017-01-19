@@ -29,20 +29,20 @@
        <!--  <li ng-hide="$ctrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Sign up</a></li> -->
         
          <!-- Single button with keyboard nav -->
-    <li class="btn-group" uib-dropdown keyboard-nav>
+    <li  ng-hide="$ctrl.isLoggedIn()" class="btn-group" uib-dropdown keyboard-nav>
         <a id="simple-btn-keyboard-nav"  uib-dropdown-toggle>
            Sign up<span class="caret"></span>
         </a>
         <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
-            <li role="menuitem" ng-hide="$ctrl.isLoggedIn()" ><a ui-sref="signup">Doctor Sign up</a></li> 
+            <li role="menuitem"  ><a ui-sref="signupDoctor">Doctor Sign up</a></li> 
             <li class="divider"></li>
-            <li role="menuitem" ng-hide="$ctrl.isLoggedIn()" ><a ui-sref="signup">Patient Sign up</a></li> 
+            <li role="menuitem"  ><a ui-sref="signupPatient">Patient Sign up</a></li> 
             
         </ul>
     </li>
 
         <li ng-hide="$ctrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
-        <li ng-show="$ctrl.isLoggedIn()"><p class="navbar-text">Hello {{ $ctrl.getCurrentUser().name }}</p> </li>
+        <li ng-show="$ctrl.isLoggedIn()"><p class="navbar-text">Hello {{ $ctrl.getCurrentUser().firstname }}</p> </li>
         <li ng-show="$ctrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li>
         <li ng-show="$ctrl.isLoggedIn()"><a ui-sref="logout">Logout</a></li>
       </ul>

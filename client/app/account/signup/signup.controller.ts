@@ -3,7 +3,8 @@
 const angular = require('angular');
 
 interface User {
-  name: string;
+  firstname: string;
+  lastname: string;
   email: string;
   password: string;
   role: string;
@@ -11,7 +12,8 @@ interface User {
 
 export default class SignupController {
   user: User = {
-    name: '',
+    firstname: '',
+    lastname: '',
     email: '',
     password: '',
     role: ''
@@ -26,32 +28,64 @@ export default class SignupController {
   constructor(Auth, $state) {
     this.Auth = Auth;
     this.$state = $state;
+    //console.log(this.$state.current.name);
   }
 
   register(form) {
-    console.log(this.test);
+
     this.submitted = true;
 
     if(form.$valid) {
-      return this.Auth.createUser({
-        name: this.user.name,
-        email: this.user.email,
-        password: this.user.password,
-        role: "patient"
-      })
-      .then(() => {
-        // Account created, redirect to home
-                this.$state.go('main');      })
-      .catch(err => {
-        err = err.data;
-        this.errors = {};
-        // Update validity of form fields that match the mongoose errors
-        angular.forEach(err.errors, (error, field) => {
-          form[field].$setValidity('mongoose', false);
-          this.errors[field] = error.message;
-        });
+      if(this.$state.current.name=='signupPatient'){
+        return this.Auth.createUser({
+          firstname: this.user.firstname,
+          lastname: this.user.lastname,
+          email: this.user.email,
+          password: this.user.password,
+          role: "patient"
+        })
+        .then(() => {
+          // Account created, redirect to home
+          this.$state.go('main');      })
+        .catch(err => {
+          err = err.data;
+          this.errors = {};
+          // Update validity of form fields that match the mongoose errors
+          angular.forEach(err.errors, (error, field) => {
+            form[field].$setValidity('mongoose', false);
+            this.errors[field] = error.message;
+          });
 
-      });
+        });
+      }else{
+
+        if(this.$state.current.name=='signupDoctor'){
+          return this.Auth.createUser({
+            firstname: this.user.firstname,
+            lastname: this.user.lastname,
+            email: this.user.email,
+            password: this.user.password,
+            role: "doctor"
+          })
+          .then(() => {
+            // Account created, redirect to home
+            this.$state.go('main');      })
+          .catch(err => {
+            err = err.data;
+            this.errors = {};
+            // Update validity of form fields that match the mongoose errors
+            angular.forEach(err.errors, (error, field) => {
+              form[field].$setValidity('mongoose', false);
+              this.errors[field] = error.message;
+            });
+
+          });
+        }
+
+
+      }
+
     }
+
   }
 }
