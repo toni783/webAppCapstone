@@ -70,7 +70,7 @@
     "ts-helpers": "1.1.1",
     "gulp-env": "^0.4.0",
     "gulp-eslint": "^2.0.0",
-    "gulp-imagemin": "^3.0.1",
+    "gulp-imagemin": "^7.1.0",
     "gulp-inject": "^4.0.0",
     "gulp-istanbul": "^1.1.1",
     "gulp-istanbul-enforcer": "^1.0.3",
